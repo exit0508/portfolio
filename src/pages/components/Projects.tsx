@@ -1,5 +1,4 @@
-import { FC } from "react";
-import type { GetStaticProps, NextPage } from "next";
+import type { NextPage } from "next";
 import Card from "./Card";
 
 interface Project {
@@ -17,7 +16,7 @@ const Projects: NextPage<ProjectProps> = ({ projects }) => {
   return (
     <div className="container">
       <h1>Projects</h1>
-      {projects.map((project) => (
+      {projects?.map((project) => (
         <Card
           key={`card-${project.id}`}
           id={project.id}
