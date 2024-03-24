@@ -36,8 +36,10 @@ const Home: NextPage<HomeProps> = ({ projects }) => {
   return (
     <div>
       <Header />
-      <AboutMe />
-      <Projects projects={projects} />
+      <div className="container">
+        <AboutMe />
+        <Projects projects={projects} />
+      </div>
       <Footer />
     </div>
   );

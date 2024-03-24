@@ -4,10 +4,9 @@ import React, { FC, useEffect } from "react";
 const Header: FC = () => {
   return (
     <header className="bg-white shadow">
-      <nav className="container mx-auto px-6 py-3">
+      <nav className="container px-6 py-3 text-l flex flex-row space-x-4">
         <a href="">About me</a>
-        <a href="">Creative</a>
-        <a href="">Social</a>
+        <a href="">Projects</a>
       </nav>
     </header>
   );

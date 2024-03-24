@@ -15,7 +15,7 @@ interface ProjectProps {
 
 const Projects: NextPage<ProjectProps> = ({ projects }) => {
   return (
-    <div>
+    <div className="container">
       <h1>Projects</h1>
       {projects.map((project) => (
         <Card
