@@ -3,12 +3,12 @@ import { FC } from "react";
 const Footer: FC = () => {
   return (
     <footer>
-      <li>
+      {/* <li>
         <ul>
           <a href="">About me</a>
           <a href="">Creative</a>
         </ul>
-      </li>
+      </li> */}
       <p>@2024 by Yurina Deguchi</p>
     </footer>
   );
