@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Button } from "./Button";
+import Link from "next/link";
 
 const AboutMe: FC = () => {
   return (
@@ -13,7 +14,9 @@ const AboutMe: FC = () => {
         <p>driven by curiosity</p>
       </div>
 
-      <Button>...More details?</Button>
+      <Link href={"/about"}>
+        <Button>...More details?</Button>
+      </Link>
     </div>
   );
 };

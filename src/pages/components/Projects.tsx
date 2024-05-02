@@ -3,7 +3,7 @@ import Card from "./Card";
 
 interface Project {
   pageId: string;
-  start_date: string;
+  date: string;
   project_title: string;
 }
 
@@ -19,7 +19,7 @@ const Projects: NextPage<ProjectProps> = ({ projects }) => {
         <Card
           key={`card-${project.pageId}`}
           project_title={project.project_title}
-          start_date={project.start_date}
+          start_date={project.date}
         />
       ))}
     </div>

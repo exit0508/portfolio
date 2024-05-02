@@ -3,14 +3,15 @@ import {
   type PageObjectResponse,
   type PartialPageObjectResponse,
   type QueryDatabaseResponse,
+  type RichTextItemResponse,
+  type MentionRichTextItemResponse,
+  type SelectPropertyResponse
 } from "@notionhq/client/build/src/api-endpoints";
-import { title } from "process";
 
-export interface NotionPageData {
+export interface NotionPageList {
   pageId: string;
-  title: string;
+  title: RichTextItemResponse['plain_text'];
   tags: string[];
-  data: string;
   url: string;
 }
 
@@ -20,7 +21,10 @@ const notion = new Client({
 const databaseId = process.env.NOTION_DATABASE_ID as string;
 
 export const fetchProjects = async () => {
-  const data = [];
+  let cursor: string | undefined;
+  let hasMore = false;
+  const data = []
+
   try {
     const response: QueryDatabaseResponse = await notion.databases.query({
       database_id: databaseId,
@@ -35,9 +39,15 @@ export const fetchProjects = async () => {
         ],
       },
     });
+
     for (const page of response.results) {
-      if (!isFullPageOrDatabase(page)) continue;
-      console.log(typeof page);
+      data.push({
+        pageId: page.id,
+        title: fetchPropety(page, title)
+      })
+      })
+
+      
     }
     return response.results;
   } catch (error) {
@@ -46,11 +56,15 @@ export const fetchProjects = async () => {
   }
 };
 
-// export const fetchPropety = async (page, pageId: string, propertyType: string) => {
-//   const propertyId =
-//   const pageTitle = await notion.pages.properties.retrieve({
-//     page_id: pageId,
-//     property_id: title,
-//   });
-//   return pageTitle
-// };
+//必要なプロパティを取得するフィルタリング
+
+function fetchPropety(
+  page: PageObjectResponse,
+  propertyType: string
+){
+  while(isFullPageOrDatabase(page)){
+    
+    }
+  }
+};
+

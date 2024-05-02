@@ -3,7 +3,7 @@ import React, { FC, useEffect } from "react";
 
 const Header: FC = () => {
   return (
-    <header className="bg-white shadow">
+    <header className="bg-white shadow sticky top-0">
       <nav className="container baseText px-6 py-3 text-lg flex item-center flex-row space-x-4 text-xl  md:text-2xl">
         <a href="">About me</a>
         <a href="">Projects</a>
